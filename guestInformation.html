@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--
+
+Name: Julie Cao
+Student ID: 216188104
+Subject: SIT7714
+Assignment: Assignment 1
+Comment: This is a page which allows guests to enter their information and book a room at The Squirrel Retreat
+
+-->
+<html lang="en" xml:lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="description" content="Booking form for The Squirrel Retreat"/>
+	<meta name="keywords" content="booking, guest information, squirrel,retreat,accomodation,hotel, holiday"/>
+	<meta name="author" content="Julie Oanh Cao"/>
+	<link rel="stylesheet" type="text/css" href="css/bodyAndHeadings.css">
+	<link rel="stylesheet" type="text/css" href="css/navigationMenu.css">
+	<link rel="stylesheet" type="text/css" href="css/retreatHeading.css">
+	<link rel="stylesheet" type="text/css" href="css/formDefaults.css"/>
+	<link rel="stylesheet" type="text/css" href="css/disclaimer.css">
+<style type="text/css">
+h2 {
+	margin-top:-2em;
+}
+div#bodyDivGuestInfoPage{
+	height:550px;
+}	
+div#guestInfo, div#paymentSection{
+	display:inline-block;
+	width:37%;	
+}
+div#paymentSection{
+	padding-left:5%;
+}
+table{
+	width:100%;
+	border-collapse:collapse;
+}
+td.fieldInput{
+	width:60%;	
+}
+input, select{
+	height:25px;
+}
+textarea {
+	height:50px;
+}
+#guestInfoSubmitButton{
+	width:150px;
+	height:50px;
+	}
+#submitButtonDiv{
+	padding-top:5%;
+	float:right;
+}
+input[type="submit"]:active {
+    color: green;
+}
+#twoTablesAndButton{
+	display:inline-block;
+	width:97%;
+	text-align:left;
+	margin-top:1%;
+}
+.cardImages{
+	width:57px;
+	height:33px;
+}
+.creditCardDiv {
+	width:33%;
+	height:100%;
+	float:left;
+	text-align:center;
+}
+.leftCard {
+	text-align:left;
+}
+.rightCard {
+	text-align:right;
+}
+#cash{
+	float:right;
+	margin-top:-16%;
+	height:200px;
+}
+
+</style>
+
+<title>Guest Information</title>
+</head>
+<body>
+
+	<!-- Company logo section -->
+	<div id="titleAndCaption">
+	<div id="retreatLogoDiv">  
+	<!-- The retreat logo was created by modifying the following digital image of a tree silhouette,freestockphotos, accessed 23 July  2016, <http://www.freestockphotos.biz/stockphoto/15119>-->	
+	<img src="images/retreatLogo.png" alt="retreat logo" id="retreatLogo"/>
+	</div>
+    <h1>THE SQUIRREL RETREAT</h1>
+    
+    <!-- not sure about this being a <p>, perhaps <caption>? -->
+    <p id="titleCaption">PROVIDING LUXURY ACCOMODATION FOR SQUIRRELS SINCE 1923</p>
+    </div>
+    <!-- END Company logo section -->
+
+<div id="bodyDivGuestInfoPage">
+
+<div id="twoTablesAndButton">
+<div id="guestInfo">
+<h2> GUEST INFORMATION </h2>
+
+<form>
+<table>
+
+<tr>
+<td class="fieldNames">Title </td>
+<td class="fieldInput" ><select name="titleSelection">
+	<option value="Sir">Sir</option>
+	<option value="Madam">Madam</option>
+	<option value="Dame">Dame</option>
+	<option value="Professor">Professor</option>
+	<option value="Reverend">Reverend</option>
+	<option value="Doctor">Doctor</option>
+	<option value="Lumberjack">Lumberjack</option>
+	<option value="Mr">Mr</option>
+	<option value="Mrs">Mrs</option>
+	<option value="Miss">Miss</option>
+	<option value="Ms">Ms</option>
+	<option value="Other">Other</option>
+	</select>
+</td>
+</tr>
+<tr>
+<td class="fieldNames">First Name*: </td>
+<td class="fieldInput"><input type="text" name="firstName" /></td>
+</tr>
+<tr>
+<td class="fieldNames">Middle Name: </td>
+<td class="fieldInput"><input type="text" name="middleName"/></td>
+</tr>
+<tr>
+<td class="fieldNames"> Last Name*: </td>
+<td class="fieldInput"><input type="text" name="lastName"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Email Address:</td>
+<td class="fieldInput"><input type="text" name="emailAddress"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Home phone no:</td>
+<td class="fieldInput"><input type= "number" name="HomePhoneNumber"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Mobile phone no:</td>
+<td class="fieldInput"><input type= "number" name="MobilePhoneNumber"/></td>
+</tr>
+<tr>
+<td class="fieldNames" >Address: </td>
+<td class="fieldInput"><textarea> </textarea></td>
+</tr>
+<tr>
+<td class="fieldNames">City:</td>
+<td class="fieldInput"><input type= "text" name="city"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Postal code:</td>
+<td class="fieldInput"> <input type= "number" name="postalCode"/></td>
+</tr>
+<tr>
+<td class="fieldNames">State:</td>
+<td class="fieldInput"><input type= "text" name="state"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Country:</td>
+<td class="fieldInput"><input type= "text" name="state"/></td>
+</tr>
+</table>
+</form>
+</div>
+
+<div id="paymentSection">
+<h2> PAYMENT METHOD </h2>
+
+<form>
+<table>
+<tr>
+<td colspan="2" class="fieldInput">
+<div class="creditCardDiv leftCard"><input type="radio" name="paymentOption" class="radioLabel" id="visa" value ="visa" checked/><!-- digital image of visa logo, megavar, accessed 13 July 2016, <www.megavar.com.au>.-->
+	<label for="visa"><img class="cardImages" alt="visaCard" src="images/visa.jpeg"></label>
+	<!-- digital image of visa logo, megavar, accessed 13 July 2016, <www.megavar.com.au>.-->
+</div><div class="creditCardDiv middleCard"><input type="radio" name="paymentOption" class="radioLabel" id="mastercard" value="mastercard"/>
+	<label for="mastercard"><img  class="cardImages" alt="masterCard" src="images/masterCard.jpg"></label>
+	
+	 <!--digital image of mastercard logo, aroundaboutcars, accessed 13 July 2016, <www.de.aroundaboutcars.com/>-->
+</div><div class="creditCardDiv rightCard"><input type="radio" name="paymentOption" class="radioLabel" id="amex" value="amex"/>
+	<label for="amex"><img class="cardImages" alt="amexCard" src="images/americanExpress.jpg"></label>
+	<!--digital image of american express logo, Instapose Imagery, accessed 13 July 2016, <http://www.instapose.com.au/photobooth/>-->
+	</div></td>
+</tr>
+<tr>
+<td class="fieldNames"> Name on card:</td>
+<td class="fieldInput"><input type="text" name="cardHolderName"/></td>
+</tr>
+<tr>
+<td class="fieldNames"> Card number:</td>
+<td class="fieldInput"><input type="number" name="cardNumber"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Expiration date: </td>
+<td class="fieldInput" ><select name="expiryMonth">
+	<option value="January">January</option>
+	<option value="February">February</option>
+	<option value="March"> March</option>
+	<option value="April">April</option>
+	<option value="May">May</option>
+	<option value="June">June</option>
+	<option value="July">July</option>
+	<option value="August"> August</option>
+	<option value="September"> September</option>
+	<option value="October"> October</option>
+	<option value="November"> November</option>
+	<option value="December"> December</option>
+	</select>
+</td>
+</tr>
+<tr>
+<td class="fieldNames">Expiration year:</td>
+<td class="fieldInput"><input type="text" name="yearOfExpiry"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Verification code:</td>
+<td class="fieldInput"><input type="number" name="verificationNo"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Billing Address:</td>
+<td class="fieldInput"><textarea></textarea></td>
+</tr>
+<tr>
+<td class="fieldNames">City:</td>
+<td class="fieldInput"><input type="text" name="billingCity"></td>
+</tr>
+<tr>
+<td class="fieldNames">State:</td>
+<td class="fieldInput"><input type="text" name="billingState"/></td>
+</tr>
+<tr>
+<td class="fieldNames">Postcode:</td>
+<td class="fieldInput"><input type="number" name="billingPostCode"/> </td>
+</tr>
+<tr>
+<td class="fieldNames">Country:</td>
+<td class="fieldInput"><input type="text" name="billingCountry"/> </td>
+</tr>
+</table>
+<div id=submitButtonDiv><input type="submit" value="BOOK NOW" id="guestInfoSubmitButton"/></div>
+</form>
+</div>
+</div>
+<div id="cashPicture">
+<!--digital image of squirrel holding cash, gettyimages, accessed 20 July 2016, 
+<http://media.gettyimages.com/photos/squirrel-holding-money-picture-id83455549?s=170x170>-->
+<img src="images/cash.jpg" alt="squirrelHoldingCash" id="cash"/>
+</div>
+</div>
+
+<!-- Disclaimer section -->
+<div id="disclaimer">
+<p>Disclaimer:The Squirrel Retreat is a fictional retreat that was created for a university assignment.
+Any resemblance to real squirrels, living or dead is purely coincidental.
+
+Deakin University. This web page has been developed as a student assignment for the unit SIT774:Web 
+and Internet Programming. Therefore it is not part of the University's authorised web site.
+
+DO NOT USE THE INFORMATION CONTAINED ON THIS WEB PAGE IN ANY WAY.
+</p>
+<a href="http://www.deakin.edu.au/" target="_blank">
+<!--digital image of deakin logo,wikimedia, accessed 15 July 2016,
+<https://commons.wikimedia.org/wiki/File:Deakin_Worldly_Logo.jpg>-->
+	<img src="images/Deakin_Logo.png" alt="deakin logo" width="90" height="90" id="deakin_logo"/>
+</a>
+</div>
+</body>
+</html>

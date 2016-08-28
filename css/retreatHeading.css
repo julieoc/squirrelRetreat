@@ -1,0 +1,30 @@
+/*
+
+Name: Julie Cao
+Student ID: 216188104
+Subject: SIT7714
+Assignment: Assignment 1
+Comment: This is the CSS which controls the styling of the retreat heading and logo
+
+*/
+
+	#titleAndCaption {
+		height:200px;
+		text-align:center;
+		padding-top:120px;	
+	}
+    #titleCaption{
+      	display: block;
+        font-size: 1em;
+        margin-top: 0%;
+        margin-bottom:2%; 
+        margin-left: 0%;
+        margin-right: 0%;
+        font-weight: normal;
+        text-align:center; 
+    }
+    #retreatLogo {
+		margin-top:-80px;
+		height:150px;
+		width:auto;
+	}

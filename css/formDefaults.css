@@ -1,0 +1,42 @@
+/*
+
+Name: Julie Cao
+Student ID: 216188104
+Subject: SIT7714
+Assignment: Assignment 1
+Comment: This is the CSS used to control the default settings for the forms in this website
+
+*/
+
+input, select, textarea {
+    width:100%;
+    border:1px solid #ccc;
+	-ms-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box; 
+	box-sizing:border-box;
+	/* sourced from: http://stackoverflow.com/questions/4073768/how-to-get-equal-width-of-input-and-select-fields */
+}
+textarea {
+	resize: none;
+	height:50px;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='radio']{
+		width:auto;
+}
+input[type='submit']{
+	cursor:pointer;
+	font-size:12pt;
+	font-weight:bold;
+	width:80px;
+	height:40px;
+	background-color:#AEC6CF;
+}

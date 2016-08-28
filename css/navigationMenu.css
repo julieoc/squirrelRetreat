@@ -1,0 +1,57 @@
+/*
+
+Name: Julie Cao
+Student ID: 216188104
+Subject: SIT7714
+Assignment: Assignment 1
+Comment: This is the CSS which controls the styling of the navigation menu bar
+
+*/
+
+#navigationToolbar
+{
+	width:100%;
+	text-align:center;
+	top:0%;
+	position:fixed;
+	display:block;
+	background-color:#f1f1f1;
+	
+}
+ul.navigationBar
+{
+	list-style-type: none;
+	padding:0%;
+	margin:0%;
+	height:30px;
+	display:inline-block;
+	top:0%;
+	width:100%;
+	overflow:hidden;
+			
+}
+li.navigationBar
+{
+	float:left;
+	border-right:1px solid #bbb;
+}
+li.navigationBar:last-child
+{
+	border-right:none;
+}
+.active
+{
+	background-color:#4C4F50;
+}
+li a:hover{
+	background-color:#AEC6CF;
+}
+
+li a
+{
+	display:block;
+	color:black;
+	text-align:center;
+	padding: 8px 16px;
+	text-decoration:none;
+}
