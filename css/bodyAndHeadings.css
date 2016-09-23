@@ -10,9 +10,9 @@ Comment: This is the CSS used to provide default settings for the body and heade
 
 body
 {	background-color:#FEFEFE;
-	font-family:helvetica;
+	font-family:"Verdana",arial,sans serif;
 	text-align:justify;
-	font-size:11pt;
+	font-size:9pt;
 	margin-left:5%;
 	margin-right:5%;
 }

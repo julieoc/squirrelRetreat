@@ -10,7 +10,8 @@ Comment: This is the CSS which controls the styling of the navigation menu bar
 
 #navigationToolbar
 {
-	width:100%;
+	width:38.1%;
+	height:4.1%;
 	text-align:center;
 	top:0%;
 	position:fixed;
