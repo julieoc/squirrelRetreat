@@ -18,9 +18,8 @@ $pollResults = getPollResults($conn);
 $bookings = getBookingHistory($conn);
 $customers = getCustomerInformation($conn);
 dbClose($conn);
-
 ?>
-<h1>POLL RESULTS</h1>
+<h2>POLL RESULTS</h2>
 <table>
 <tr><th>Question number </th>
 <th>Question</th>
@@ -40,54 +39,89 @@ foreach ($pollResults as $row) {
 } 
 ?>
 </table>
+<h2>BOOKING INFORMATION</h2>
 <table>
-<th><td> BOOKING INFORMATION</td></th>
+<tr>
+<th>Booking ID </th>
+<th>Room number </th>
+<th>Customer ID </th>
+<th>Checkin date </th>
+<th>Checkout date </th>
+<th>Adults </th>
+<th>Children </th>
+</tr>
 <?php
 foreach($bookings as $row){
 ?>
 <tr>
-<td><?php echoSafeText($row['bookID']); ?></td>
-<td><?php echoSafeText($row['roomNumber']); ?></td>
-<td><?php echoSafeText($row['customerID']); ?></td>
-<td><?php echoSafeText($row['checkIn']); ?></td>
-<td><?php echoSafeText($row['checkOut']); ?></td>
-<td><?php echoSafeText($row['adults']); ?></td>
-<td><?php echoSafeText($row['children']); ?></td>
+<td><?php echoSafeText($row['BOOKID']); ?></td>
+<td><?php echoSafeText($row['ROOMNUMBER']); ?></td>
+<td><?php echoSafeText($row['CUSTOMERID']); ?></td>
+<td><?php echoSafeText($row['CHECKIN']); ?></td>
+<td><?php echoSafeText($row['CHECKOUT']); ?></td>
+<td><?php echoSafeText($row['ADULTS']); ?></td>
+<td><?php echoSafeText($row['CHILDREN']); ?></td>
 </tr>
 <?php
 }
 ?>
 </table>
+<h2>CUSTOMER INFORMATION</h2>
 <table>
-<th><td> CUSTOMER INFORMATION </td></th>
+<tr>
+<th>Customer ID </th>
+<th>Title </th>
+<th>First name </th>
+<th>Last name </th>
+<th>Middle name </th>
+<th>Email </th>
+<th>Home phone </th>
+<th>Mobile phone </th>
+<th>Address</th>
+<th>City</th>
+<th>Postcode </th>
+<th>State </th>
+<th>Country</th>
+<th>Creditcard type</th>
+<th>Card name</th>
+<th>Card number</th>
+<th>Expiry month</th>
+<th>Expiry year</th>
+<th>Verification code</th>
+<th>Billing address</th>
+<th>Billing city</th>
+<th>Billing postcode</th>
+<th>Billing state</th>
+<th>Billing country</th>
+</tr>
 <?php
 foreach($customers as $row){
 ?>
 <tr>
-<td><?php echoSafeText($row['customerID']); ?></td>
-<td><?php echoSafeText($row['title']);?></td>
-<td><?php echoSafeText($row['firstName']);?></td>
-<td><?php echoSafeText($row['lastName']);?></td>
-<td><?php echoSafeText($row['middleName']);?></td>
-<td><?php echoSafeText($row['email']);?></td>
-<td><?php echoSafeText($row['homePh']);?></td>
-<td><?php echoSafeText($row['mobilePh']);?></td>
-<td><?php echoSafeText($row['address']);?></td>
-<td><?php echoSafeText($row['city']);?></td>
-<td><?php echoSafeText($row['postcode']);?></td>
-<td><?php echoSafeText($row['state']);?></td>
-<td><?php echoSafeText($row['country']);?></td>
-<td><?php echoSafeText($row['cardType']);?></td>
-<td><?php echoSafeText($row['cardName']);?></td>
-<td><?php echoSafeText($row['cardNumber']);?></td>
-<td><?php echoSafeText($row['expMonth']);?></td>
-<td><?php echoSafeText($row['expYear']);?></td>
-<td><?php echoSafeText($row['verificationCd']);?></td>
-<td><?php echoSafeText($row['billAddress']);?></td>
-<td><?php echoSafeText($row['billCity']);?></td>
-<td><?php echoSafeText($row['billPostcode']);?></td>
-<td><?php echoSafeText($row['billState']);?></td>
-<td><?php echoSafeText($row['billCountry']);?></td>
+<td><?php echoSafeText($row['CUSTOMERID']); ?></td>
+<td><?php echoSafeText($row['TITLE']);?></td>
+<td><?php echoSafeText($row['FIRSTNAME']);?></td>
+<td><?php echoSafeText($row['LASTNAME']);?></td>
+<td><?php echoSafeText($row['MIDDLENAME']);?></td>
+<td><?php echoSafeText($row['EMAIL']);?></td>
+<td><?php echoSafeText($row['HOMEPH']);?></td>
+<td><?php echoSafeText($row['MOBILEPH']);?></td>
+<td><?php echoSafeText($row['ADDRESS']);?></td>
+<td><?php echoSafeText($row['CITY']);?></td>
+<td><?php echoSafeText($row['POSTCODE']);?></td>
+<td><?php echoSafeText($row['STATE']);?></td>
+<td><?php echoSafeText($row['COUNTRY']);?></td>
+<td><?php echoSafeText($row['CARDTYPE']);?></td>
+<td><?php echoSafeText($row['CARDNAME']);?></td>
+<td><?php echoSafeText($row['CARDNUMBER']);?></td>
+<td><?php echoSafeText($row['EXPMONTH']);?></td>
+<td><?php echoSafeText($row['EXPYEAR']);?></td>
+<td><?php echoSafeText($row['VERIFICATIONCD']);?></td>
+<td><?php echoSafeText($row['BILLADDRESS']);?></td>
+<td><?php echoSafeText($row['BILLCITY']);?></td>
+<td><?php echoSafeText($row['BILLPOSTCODE']);?></td>
+<td><?php echoSafeText($row['BILLSTATE']);?></td>
+<td><?php echoSafeText($row['BILLCOUNTRY']);?></td>
 <?php
 }
 ?>
