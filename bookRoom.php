@@ -4,8 +4,9 @@ session_start();
 
 require_once 'generalFunctions.php';
 function bookRoom($dbh, $custId) {
-  $qry = 'INSERT INTO BOOKING(bookID, roomNumber, customerID, checkIn, checkOut, adults, children)
-    VALUES (:bookId, :roomNo, :custId, :checkinDate, :checkoutDate, :numAdults, :numChild)';
+  $qry = "INSERT INTO BOOKING(bookID, roomNumber, customerID, checkIn, checkOut, adults, children)
+    VALUES (:bookId, :roomNo, :custId, TO_DATE(:checkinDate, 'YYYY-MM-DD'), 
+    TO_DATE(:checkoutDate, 'YYYY-MM-DD'), :numAdults, :numChild)";
   
   // Find the max booking ID and increment it
   $id_qry = oci_parse($dbh, 'SELECT MAX(bookID) as "MAX_ID" FROM BOOKING');
@@ -26,10 +27,12 @@ function bookRoom($dbh, $custId) {
   oci_bind_by_name($sth, ':checkinDate', emptyOrNull($_SESSION['checkinDate']));
   oci_bind_by_name($sth, ':roomNo', emptyOrNull($_SESSION['roomNo']));
   oci_execute($sth);
+
   unset($_SESSION['numChild']);
   unset($_SESSION['checkoutDate']);
   unset($_SESSION['checkinDate']);
   unset($_SESSION['roomNo']);
   unset($_SESSION['numAdults']);
+
 }
 ?>
