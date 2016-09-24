@@ -1,0 +1,230 @@
+/*
+
+Name: Julie Cao
+Student ID: 216188104
+Subject: SIT7714
+Assignment: Assignment 1
+Comment: This is the CSS used to control the components in the index page
+
+*/
+  
+    #hotelImage{
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 3em;
+        width: 100%;   
+    }
+    #rockyImage{
+		float:left;
+		width:300px;
+		height:404px;
+		padding-right:1px;
+		padding-top:13px;
+   	}
+	#queenBed{
+		width:300px;
+		height:200px;
+		float:left;
+		padding-left:10px;
+	}
+	#kingBed{
+		width:300px;
+		height:200px;
+		float:left;
+		padding-left:10px;
+	}
+	#penthouse{
+		width:300px;
+		height:200px;
+		float:left;
+		padding-left:10px;
+	}
+
+	.reviews{
+		font-style:italic;
+	}
+  	.divTable {
+  		display: table;
+  		margin:0 auto;
+		border-collapse:separate;
+		border-spacing:5px;
+		width:50%;
+		text-align: center;
+  	}
+  	.divRow {
+  		display:table-row;
+  	}
+  	.divCol, .divInputCol {
+  		display:table-cell;
+  		text-align:left;
+  	}
+  	.divCol {
+  		padding-left:30px;
+  	}
+  	.divInputCol {
+  		width:30%;
+  	}
+	
+	#makeABookingDiv {
+		text-align:center;
+	}
+	#makeABookingForm {
+		display:inline-block;
+		margin-left:-34px;
+		margin-top:-10px;
+	}
+	
+
+	#bookingSubmit {
+		float:right;
+		margin-right:5px;
+		background:#9cbf73;
+	}
+	
+  	div.logos {
+		position:relative;
+		top: 5%;
+		left: 80%;
+		width:195px; 
+		
+  	}
+  	.reservation_button{
+  		display:inline-block;
+  		max-width:120px;
+  		max-height:120px;
+  		width: auto;
+  		height:auto;
+  	}
+  	#aboutInfo{
+		font-weight:bold;
+  	}
+  	/* The following code was adapted from css tricks 2010, accessed 20 July 2016,  	<https://css-tricks.com/snippets/css/multiple-columns/> */
+  	div.aboutSection{
+		padding: 1em;
+	  	-moz-column-count: 3;
+	  	-moz-column-gap: 1em;
+	  	-webkit-column-count: 3;
+	  	-webkit-column-gap: 1em;
+	  	column-count: 3;
+	  	column-gap: 1em
+  	}
+  	#roomsInfo{
+		font-weight:bold;
+  	}
+	table {
+	background-color:#FFFAF0;
+		border-collapse: collapse;
+		border: 0.5px solid black;
+		width:100%;
+		height:50%;
+		margin:auto;
+		font-size:10pt;
+		margin-top:3em;
+	}
+	.firstTwoRows{
+		background-color:#9cbf73;
+		height:10%;
+	}
+	th, td {
+		padding-top:8px;
+		padding-bottom:8px;
+		padding-left: 2px;
+		padding-right:2px;
+		text-align: center;
+	}
+	.roomFeatures{
+		 text-align:left;
+	}
+  	#diningInfo{
+		font-weight:bold;
+  	}
+  	#diningSection{
+		text-align:center;
+		text-align:justify;
+  	}
+  	.hestonJaneDesc{
+		width:50%;
+		text-align:justify;
+		overflow:auto;
+		display:inline-block;
+  	}
+  	#heston, #chef{
+		width:250px;
+		height:250px;
+	}
+	#heston{
+		float:left;
+	}
+	#chef {
+		float:right;	
+	}
+	div.food{
+		display:inline-block;
+	}
+	#menuTitle{
+		margin-top:-4px;
+	}
+  	#menuSection{
+		background-color: #F8F8FF;
+		border: 1px solid #ddd;
+		text-align:center;
+		font-family:"Lucida Sans Unicode";
+		margin:auto;
+		padding-bottom:100px;
+		padding-top:30px;
+  	}
+  	div.diningSection2{
+		display:inline-block;
+		text-align:center;
+		text-align:justify;
+		height:250px;
+		width:900px;
+  	}
+  	#aboutTheChefs{
+	  	text-align:center;
+  	}
+  	div#entreeDiv{
+		width:300px;
+		display:inline-block;
+		background-color:white;
+		margin-right:10px;
+		margin-top:5px;
+  	}
+	div#mainsDiv{
+		width:300px;
+		display:inline-block;
+		background-color:white;
+		margin-right:10px;
+	}
+	div#dessertsDiv{
+		width:300px;
+		display:inline-block;
+		background-color:white;
+	}
+  	#retreatReviews{
+		font-weight:bold;
+  	}
+  	#contactUs{
+		font-weight:bold;
+  	}
+  	#BOOK{
+		background-color:#9cbf73;
+  	}
+  	.foodImage{
+		max-width:13%;
+		height:auto;
+		display:inline-block;
+		padding:0.35em;
+  	}
+  	#trip_advisor{
+		display:inline-block;
+		margin-left:-920px;
+		margin-top:-50px;
+  	}
+	.contactFormInputField{
+		width:50%;
+		height:auto;
+	}
+	.contactFormInputText{
+		height:25px;
+	}
