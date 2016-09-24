@@ -21,9 +21,17 @@ foreach ($pollResults as $row) {
   echo "{$row['QNUM']} - {$row['QUESTION']}:    {$row['AVG_RATING']} ({$row['NUMVOTES']} votes cast)<br>";
 }
 
-/*foreach ($bookings as $row) {
+/*
+foreach ($bookings as $row) {
   echo "BOOKING!!<br>";
-}*/
+}
+/**/
+
+/*
+foreach ($customers as $row) {
+  echo "CUSTOMER!!<br>";
+}
+/**/
 
 dbClose($conn);
 
