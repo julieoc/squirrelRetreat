@@ -1,0 +1,75 @@
+	/*
+
+Name: Julie Cao
+Student ID: 216188104
+Subject: SIT7714
+Assignment: Assignment 2
+Comment: This is the CSS used to control the settings for the guest information page of this website.
+
+*/
+
+
+h2 {
+	margin-top:-2em;
+}
+div#bodyDivGuestInfoPage{
+	height:550px;
+}	
+div#guestInfo, div#paymentSection{
+	display:inline-block;
+	width:37%;	
+}
+div#paymentSection{
+	padding-left:5%;
+}
+table{
+	width:100%;
+	border-collapse:collapse;
+}
+td.fieldInput{
+	width:60%;	
+}
+input, select{
+	height:25px;
+}
+textarea {
+	height:50px;
+}
+#guestInfoSubmitButton{
+	width:150px;
+	height:50px;
+	}
+#submitButtonDiv{
+	padding-top:5%;
+	float:right;
+}
+input[type="submit"]:active {
+    color: green;
+}
+#twoTablesAndButton{
+	display:inline-block;
+	width:97%;
+	text-align:left;
+	margin-top:1%;
+}
+.cardImages{
+	width:57px;
+	height:33px;
+}
+.creditCardDiv {
+	width:33%;
+	height:100%;
+	float:left;
+	text-align:center;
+}
+.leftCard {
+	text-align:left;
+}
+.rightCard {
+	text-align:right;
+}
+#cash{
+	float:right;
+	margin-top:-16%;
+	height:200px;
+}
