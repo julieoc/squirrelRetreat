@@ -49,7 +49,6 @@ Comment: This is a page which allows guests to enter their information and book 
 <div id="twoTablesAndButton">
 <div id="guestInfo">
 <h2> GUEST INFORMATION </h2>
-
 <form id="guestBooking" method="post" action="finaliseBooking.php">
 <table>
 
