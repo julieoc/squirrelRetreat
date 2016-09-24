@@ -1,4 +1,5 @@
 <?php
+session_start();
 // pollResults.php
 function getPollResults($dbh) {
   $qry = 'SELECT P.qNum as QNUM, P.question as QUESTION,

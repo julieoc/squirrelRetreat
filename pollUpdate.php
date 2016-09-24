@@ -1,7 +1,8 @@
 <?php
+session_start();
 // pollUpdate.php
 // Connect to the db
-require 'dbConnect.php';
+require_once 'dbConnect.php';
 $dbh = dbConnect();
 
 // Store the poll results in the database

@@ -1,9 +1,10 @@
 <?php
+session_start();
 // createCustomer.php
-
+require_once 'generalFunctions.php';
 // Store the customer information in the database
 // Returns the customer ID that made the booking
-function createCustomer() {
+function createCustomer($dbh) {
   // Determine the new respondant ID
   $id_qry = oci_parse($dbh, 'SELECT MAX(customerID) as "MAX_ID" FROM CUSTOMER');
   oci_execute($id_qry);
@@ -12,29 +13,29 @@ function createCustomer() {
 
   // Extract values from webform
   $customerValues = array(
-    'title' => empty($_POST['titleSelection']) ? null : $_POST['titleSelection'],
-    'firstName' => empty($_POST['firstName']) ? null : $_POST['firstName'],
-    'lastName' => empty($_POST['lastName']) ? null : $_POST['lastName'],
-    'middleName' => empty($_POST['middleName']) ? null : $_POST['middleName'],
-    'email' => empty($_POST['emailAddress']) ? null : $_POST['emailAddress'],
-    'homePh' => empty($_POST['homePhoneNumber']) ? null : $_POST['homePhoneNumber'],
-    'mobilePh' => empty($_POST['mobilePhoneNumber']) ? null : $_POST['mobilePhoneNumber'],
-    'address' => empty($_POST['address']) ? null : $_POST['address'],
-    'city' => empty($_POST['city']) ? null : $_POST['city'],
-    'postcode' => empty($_POST['postalCode']) ? null : $_POST['postalCode'],
-    'state' => empty($_POST['state']) ? null : $_POST['state'],
-    'country' => empty($_POST['country']) ? null : $_POST['country'],
-    'cardType' => empty($_POST['paymentOption']) ? null : $_POST['paymentOption'],
-    'cardName' => empty($_POST['cardHolderName']) ? null : $_POST['cardHolderName'],
-    'cardNumber' => empty($_POST['cardNumber']) ? null : $_POST['cardNumber'],
-    'expMonth' => empty($_POST['expiryMonth']) ? null : $_POST['expiryMonth'],
-    'expYear' => empty($_POST['yearOfExpiry']) ? null : $_POST['yearOfExpiry'],
-    'verificationNo' => empty($_POST['verificationNo']) ? null : $_POST['verificationNo'],
-    'billAddress' => empty($_POST['billingAddress']) ? null : $_POST['billingAddress'],
-    'billCity' => empty($_POST['billingCity']) ? null : $_POST['billingCity'],
-    'billPostcode' => empty($_POST['billingPostCode']) ? null : $_POST['billingPostCode'],
-    'billState' => empty($_POST['billingState']) ? null : $_POST['billingState'],
-    'billCountry' => empty($_POST['billingCountry']) ? null : $_POST['billingCountry']
+    ':title' => emptyOrNull($_POST['titleSelection']),
+    ':firstName' => emptyOrNull($_POST['firstName']),
+    ':lastName' => emptyOrNull($_POST['lastName']),
+    ':middleName' => emptyOrNull($_POST['middleName']),
+    ':email' => emptyOrNull($_POST['emailAddress']),
+    ':homePh' => emptyOrNull($_POST['homePhoneNumber']),
+    ':mobilePh' => emptyOrNull($_POST['mobilePhoneNumber']),
+    ':address' => emptyOrNull($_POST['address']),
+    ':city' => emptyOrNull($_POST['city']),
+    ':postcode' => emptyOrNull($_POST['postalCode']),
+    ':state' => emptyOrNull($_POST['state']),
+    ':country' => emptyOrNull($_POST['country']),
+    ':cardType' => emptyOrNull($_POST['paymentOption']),
+    ':cardName' => emptyOrNull($_POST['cardHolderName']),
+    ':cardNumber' => emptyOrNull($_POST['cardNumber']),
+    ':expMonth' => emptyOrNull($_POST['expiryMonth']),
+    ':expYear' => emptyOrNull($_POST['yearOfExpiry']),
+    ':verificationCd' => emptyOrNull($_POST['verificationNo']),
+    ':billAddress' => emptyOrNull($_POST['billingAddress']),
+    ':billCity' => emptyOrNull($_POST['billingCity']),
+    ':billPostcode' => emptyOrNull($_POST['billingPostCode']),
+    ':billState' => emptyOrNull($_POST['billingState']),
+    ':billCountry' => emptyOrNull($_POST['billingCountry'])
   );
 
   // Set the insert statement up
@@ -46,7 +47,7 @@ function createCustomer() {
          :billPostcode, :billState, :billCountry)');
   // Bind the values and execute
   foreach ($customerValues as $key => $value) {
-    oci_bind_by_name($sth, ':'. $key, $value);
+    oci_bind_by_name($sth, $key, $customerValues[$key]);
   }
   oci_execute($sth);
   return $id;

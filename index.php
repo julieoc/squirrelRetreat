@@ -1,10 +1,13 @@
+<?php
+session_start();
+?>
  <!DOCTYPE html>
  <!--
 
 Name: Julie Cao
 Student ID: 216188104
 Subject: SIT7714
-Assignment: Assignment 1
+Assignment: Assignment 2
 Comment: This is the main page of The Squirrel Retreat website. It contains information about the
 retreat, such as details of it's history, room descriptions, dining information, traveller reviews, and contact information.
 
@@ -12,104 +15,6 @@ retreat, such as details of it's history, room descriptions, dining information,
 -->
 <html lang="en" xml:lang="en">
 <head>
-<script>
-//http://stackoverflow.com/questions/27317437/how-to-check-if-one-date-is-before-another-date-using-javascript-jquery
-function compareTime(time1, time2) {
-    return new Date(time1) > new Date(time2); // true if time1 is later
-}
-
-function resetErrors(errorElement)
-{
-
-	errorElement.innerHTML ="";
-	errorElement.style.height = "0px";
-
-}
-
-function validateBookingForm() 
-{
-console.log("function called");
-    var checkAvailabilityForm = document.getElementById("makeABookingForm"); // retrieves  the values from makeABookingForm and assigns them to the checkAvailabilityForm
-    var checkin = checkAvailabilityForm["checkinDate"];
-    var checkout = checkAvailabilityForm["checkoutDate"];
-    var adults = checkAvailabilityForm["numAdults"];
-    var children= checkAvailabilityForm["numChildren"];
-    var currentTimeStamp = new Date();
-    
-console.log(checkin.value);
-	var errorsExist = false;
-    if(checkin.value == "" || checkin.value == null)
-    {
-    		document.getElementById('checkinDateError').innerHTML ="Please enter a valid check-in date";
-    		document.getElementById("checkinDateError").style.height = "auto"
-    		
-    		errorsExist = true;
-    } 
-
-   else if(compareTime(currentTimeStamp, checkin.value))
-    {
-    		document.getElementById('checkinDateError').innerHTML="Check-in date cannot be earlier than current date. Please enter a valid date";
-    		document.getElementById("checkinDateError").style.height = "auto";
-    		errorsExist = true;
-    }
-    
-    else
-    {
-    	resetErrors(checkinDateError);
-    
-    }
-    if(checkout.value == "" || checkout.value == null)
-    {
-    		document.getElementById('checkoutDateError').innerHTML ="Please enter a valid check-out date";
-    		document.getElementById("checkoutDateError").style.height = "auto"
-
-    		errorsExist = true;
-    } 
-  else if(compareTime(checkin.value, checkout.value))
-    {
-    	document.getElementById('checkoutDateError').innerHTML="Checkout date must be after checkin date. Please enter a valid date";
-    	document.getElementById("checkoutDateError").style.height = "auto"
-    		errorsExist = true;
-    }
-	else
-    {
-    	resetErrors(checkoutDateError);
-    
-    }
-    if(adults.value == null || adults.value == "") 
-    {
-        	document.getElementById('adultError').innerHTML="At least on adult is required per reservation";
-        	document.getElementById("adultError").style.height = "auto"
-        	errorsExist = true;
-    }
-    
-    if(adults.value > 20 || adults.value <=0) 
-    {
-        	document.getElementById('adultError').innerHTML="The number of adults for this booking must be between 1 and 20";
-        	document.getElementById("adultError").style.height = "auto"
-        	errorsExist = true;
-    }
-    else
-    {
-    	resetErrors(adultError);
-    
-    }
-    if(children.value >20 || children.value<0)
-    {
-    document.getElementById('childrenError').innerHTML = "The number of children for this booking must be between 0 and 20";
-    document.getElementById("childrenError").style.height = "auto"
-    errorsExist= true;
-    
-    }
-    else
-    {
-    	resetErrors(childrenError);
-      
-    }
-    return !errorsExist;
-}    	
-    		
-</script>
 <meta charset="UTF-8">
 <meta name="description" content="The Squirrel Retreat has been providing luxury accomodation 			for squirrels since 1923">
 <meta name="keywords" content="squirrel,retreat,accomodation,hotel, holiday, dining, heston blumenthal, acacia tree">
@@ -124,230 +29,12 @@ console.log(checkin.value);
 <link rel="stylesheet" type="text/css" href="css/retreatHeading.css">	 
 <link rel="stylesheet" type="text/css" href="css/formDefaults.css">
 <link rel="stylesheet" type="text/css" href="css/disclaimer.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
 
-<style type="text/css">
-    #hotelImage{
-        display: block;
-        margin-top: 1em;
-        margin-bottom: 3em;
-        width: 100%;   
-    }
-    #rockyImage{
-		float:left;
-		width:300px;
-		height:404px;
-		padding-right:1px;
-		padding-top:13px;
-   	}
-	#queenBed{
-		width:300px;
-		height:200px;
-		float:left;
-		padding-left:10px;
-	}
-	#kingBed{
-		width:300px;
-		height:200px;
-		float:left;
-		padding-left:10px;
-	}
-	#penthouse{
-		width:300px;
-		height:200px;
-		float:left;
-		padding-left:10px;
-	}
+<script src="js/index.js" ></script>
 
-	.reviews{
-		font-style:italic;
-	}
-  	.divTable {
-  		display: table;
-  		margin:0 auto;
-		border-collapse:separate;
-		border-spacing:5px;
-		width:50%;
-		text-align: center;
-  	}
-  	.divRow {
-  		display:table-row;
-  	}
-  	.divCol, .divInputCol {
-  		display:table-cell;
-  		text-align:left;
-  	}
-  	.divCol {
-  		padding-left:30px;
-  	}
-  	.divInputCol {
-  		width:30%;
-  	}
-	
-	#makeABookingDiv {
-		text-align:center;
-	}
-	#makeABookingForm {
-		display:inline-block;
-		margin-left:-34px;
-		margin-top:-10px;
-	}
-	
+</head>
 
-	#bookingSubmit {
-		float:right;
-		margin-right:5px;
-		background:#9cbf73;
-	}
-	
-  	div.logos {
-		position:relative;
-		top: 5%;
-		left: 80%;
-		width:195px; 
-		
-  	}
-  	.reservation_button{
-  		display:inline-block;
-  		max-width:120px;
-  		max-height:120px;
-  		width: auto;
-  		height:auto;
-  	}
-  	#aboutInfo{
-		font-weight:bold;
-  	}
-  	/* The following code was adapted from css tricks 2010, accessed 20 July 2016,  	<https://css-tricks.com/snippets/css/multiple-columns/> */
-  	div.aboutSection{
-		padding: 1em;
-	  	-moz-column-count: 3;
-	  	-moz-column-gap: 1em;
-	  	-webkit-column-count: 3;
-	  	-webkit-column-gap: 1em;
-	  	column-count: 3;
-	  	column-gap: 1em
-  	}
-  	#roomsInfo{
-		font-weight:bold;
-  	}
-	table {
-	background-color:#FFFAF0;
-		border-collapse: collapse;
-		border: 0.5px solid black;
-		width:100%;
-		height:50%;
-		margin:auto;
-		font-size:10pt;
-		margin-top:3em;
-	}
-	.firstTwoRows{
-		background-color:#9cbf73;
-		height:10%;
-	}
-	th, td {
-		padding-top:8px;
-		padding-bottom:8px;
-		padding-left: 2px;
-		padding-right:2px;
-		text-align: center;
-	}
-	.roomFeatures{
-		 text-align:left;
-	}
-  	#diningInfo{
-		font-weight:bold;
-  	}
-  	#diningSection{
-		text-align:center;
-		text-align:justify;
-  	}
-  	.hestonJaneDesc{
-		width:50%;
-		text-align:justify;
-		overflow:auto;
-		display:inline-block;
-  	}
-  	#heston, #chef{
-		width:250px;
-		height:250px;
-	}
-	#heston{
-		float:left;
-	}
-	#chef {
-		float:right;	
-	}
-	div.food{
-		display:inline-block;
-	}
-	#menuTitle{
-		margin-top:-4px;
-	}
-  	#menuSection{
-		background-color: #F8F8FF;
-		border: 1px solid #ddd;
-		text-align:center;
-		font-family:"Lucida Sans Unicode";
-		margin:auto;
-		padding-bottom:100px;
-		padding-top:30px;
-  	}
-  	div.diningSection2{
-		display:inline-block;
-		text-align:center;
-		text-align:justify;
-		height:250px;
-		width:900px;
-  	}
-  	#aboutTheChefs{
-	  	text-align:center;
-  	}
-  	div#entreeDiv{
-		width:300px;
-		display:inline-block;
-		background-color:white;
-		margin-right:10px;
-		margin-top:5px;
-  	}
-	div#mainsDiv{
-		width:300px;
-		display:inline-block;
-		background-color:white;
-		margin-right:10px;
-	}
-	div#dessertsDiv{
-		width:300px;
-		display:inline-block;
-		background-color:white;
-	}
-  	#retreatReviews{
-		font-weight:bold;
-  	}
-  	#contactUs{
-		font-weight:bold;
-  	}
-  	#BOOK{
-		background-color:#9cbf73;
-  	}
-  	.foodImage{
-		max-width:13%;
-		height:auto;
-		display:inline-block;
-		padding:0.35em;
-  	}
-  	#trip_advisor{
-		display:inline-block;
-		margin-left:-920px;
-		margin-top:-50px;
-  	}
-	.contactFormInputField{
-		width:50%;
-		height:auto;
-	}
-	.contactFormInputText{
-		height:25px;
-	}
-    </style>
-    </head>
     <body>
     <nav>
     <div id="navigationToolbar">
@@ -376,24 +63,24 @@ console.log(checkin.value);
     <!-- END Company logo section -->
 
     <div id="makeABookingDiv">
-		<form id="makeABookingForm" action="availability_redirect.html" method="post"  onsubmit="return validateBookingForm()">
+		<form id="makeABookingForm" action="findRoom.php" method="post"  onsubmit="return validateBookingForm()">
 			<div class="divTable">
 				<div class="divRow">
 					<div class="divCol"> Check in:</div>
 					<div class="divInputCol">
-					<input type="date" name="inDate" id="checkinDate"/>
+					<input type="date" name="inDate" id="checkinDate" required/>
 					<div class="errorMessageClass" id="checkinDateError"></div>
 					</div>
 					<div class="divCol"> Check out:</div>
 					<div class="divInputCol">
-					<input type="date" name="outDate" id="checkoutDate"/>
+					<input type="date" name="outDate" id="checkoutDate" required/>
 					<div class="errorMessageClass" id="checkoutDateError"></div>
 					</div>
 				</div>
 				<div class="divRow">	
 					<div class="divCol"> No. adults:</div>
 					<div class="divInputCol numberInput">
-					<input type="number" name="numAdults" id="numAdults" />
+					<input type="number" name="numAdults" id="numAdults" required />
 					<div class="errorMessageClass" id="adultError"></div>
 					</div>
 					<div class="divCol"> No children: </div>
@@ -403,9 +90,17 @@ console.log(checkin.value);
 					</div>
 				</div>
 				<div class="divRow">
-					<div class="divCol"></div><div class="divCol"></div><div class="divCol"></div>
+					<div class="divCol">Room type:</div>
+					<div class="divInputCol">
+					<select name="roomType" required>
+					  <option value="Standard">Standard</option>
+					  <option value="Deluxe">Deluxe</option>
+					  <option value="Penthouse">Penthouse</option>
+				    </select>
+					</div>
+					<div class="divCol"></div>
 					<div class="divCol">
-				    <input type="submit" value="BOOK" id="bookingSubmit"/>
+				    <input type="submit" value="BOOK" id="bookingSubmit" />
 				    </div>
 				</div>
 			</div>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 // dbConnect.php
 // Login to the database
 function dbConnect() {
