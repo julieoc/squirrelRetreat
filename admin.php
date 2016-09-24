@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
   <title> Administration </title>
@@ -5,11 +6,11 @@
 <body>
 
 <?php
-require 'generalFunctions.php';
-require 'dbConnect.php';
-require 'pollResults.php';
-//require 'bookingInformation.php';
-//require 'customerData.php';
+require_once 'generalFunctions.php';
+require_once 'dbConnect.php';
+require_once 'pollResults.php';
+require_once 'bookingInformation.php';
+require_once 'customerData.php';
 
 $conn = dbConnect();
 
@@ -19,8 +20,13 @@ $customers = getCustomerInformation($conn);
 dbClose($conn);
 
 ?>
+<h1>POLL RESULTS</h1>
 <table>
-<th><td> POLL RESULTS </td></th>
+<tr><th>Question number </th>
+<th>Question</th>
+<th>Average rating</th>
+<th>Number of votes</th>
+</tr>
 <?php
 foreach ($pollResults as $row) {
 ?>
@@ -48,6 +54,7 @@ foreach($bookings as $row){
 <td><?php echoSafeText($row['adults']); ?></td>
 <td><?php echoSafeText($row['children']); ?></td>
 </tr>
+<?php
 }
 ?>
 </table>
@@ -81,10 +88,9 @@ foreach($customers as $row){
 <td><?php echoSafeText($row['billPostcode']);?></td>
 <td><?php echoSafeText($row['billState']);?></td>
 <td><?php echoSafeText($row['billCountry']);?></td>
+<?php
 }
 ?>
 </table>
-
-
 </body>
 </html>
