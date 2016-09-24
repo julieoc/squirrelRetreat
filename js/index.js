@@ -1,4 +1,4 @@
-<script>
+
 //http://stackoverflow.com/questions/27317437/how-to-check-if-one-date-is-before-another-date-using-javascript-jquery
 function compareTime(time1, time2) {
     return new Date(time1) > new Date(time2); // true if time1 is later
