@@ -21,25 +21,25 @@ ORDER BY r.room_id;
 $qry = 'SELECT r.roomNumber AS "AVAILABLE_ROOM" from ROOM r
 INNER JOIN BOOKING b
 ON r.roomNumber = b.roomNumber
-WHERE r.roomType = :roomType AND 
+WHERE r.roomName = :roomName AND 
 r.roomNumber NOT IN (
 SELECT b.roomNumber FROM BOOKING
 WHERE NOT (b.checkOut < :checkoutDate OR b.checkIn > :checkinDate) )
 ORDER BY r.roomNumber';
 
 $sth = oci_parse($dbh, $qry);
-oci_bind_by_name($sth, ':roomType', $roomType);
-oci_bind_by_name($sth, ':checkinDate', $checkinDate);
-oci_bind_by_name($sth, ':checkoutDate', $checkoutDate);
+oci_bind_by_name($sth, ':roomName', $_POST['roomName']);
+oci_bind_by_name($sth, ':checkinDate', $_POST['inDate']);
+oci_bind_by_name($sth, ':checkoutDate', $_POST['outDate']);
 oci_execute($sth);
 $nrows = oci_fetch_all($sth, $roomList); //, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 
 if ($nrows > 0) {
   //echo "Found a room: {$roomList['AVAILABLE_ROOM'][0]}";
-  $_SESSION['numAdults'] = $numAdults;
-  $_SESSION['numChild'] = $numChild;
-  $_SESSION['checkoutDate'] = $checkoutDate;
-  $_SESSION['checkinDate'] = $checkinDate;
+  $_SESSION['numAdults'] = $_POST['numAdults'];
+  $_SESSION['numChild'] = $_POST['numChildren'];
+  $_SESSION['checkoutDate'] = $_POST['outDate'];
+  $_SESSION['checkinDate'] = $_POST['inDate'];
   $_SESSION['roomNo'] = $roomList['AVAILABLE_ROOM'][0];
   unset($_SESSION['bookStatus']);
   echo '<meta http-equiv="refresh" content="0;url=guestInformation.html">'
