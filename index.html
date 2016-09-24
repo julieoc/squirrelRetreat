@@ -31,6 +31,7 @@ retreat, such as details of it's history, room descriptions, dining information,
 <script src="js/index.js" ></script>
 
 </head>
+
     <body>
     <nav>
     <div id="navigationToolbar">
@@ -64,19 +65,19 @@ retreat, such as details of it's history, room descriptions, dining information,
 				<div class="divRow">
 					<div class="divCol"> Check in:</div>
 					<div class="divInputCol">
-					<input type="date" name="inDate" id="checkinDate"/>
+					<input type="date" name="inDate" id="checkinDate" required/>
 					<div class="errorMessageClass" id="checkinDateError"></div>
 					</div>
 					<div class="divCol"> Check out:</div>
 					<div class="divInputCol">
-					<input type="date" name="outDate" id="checkoutDate"/>
+					<input type="date" name="outDate" id="checkoutDate" required/>
 					<div class="errorMessageClass" id="checkoutDateError"></div>
 					</div>
 				</div>
 				<div class="divRow">	
 					<div class="divCol"> No. adults:</div>
 					<div class="divInputCol numberInput">
-					<input type="number" name="numAdults" id="numAdults" />
+					<input type="number" name="numAdults" id="numAdults" required />
 					<div class="errorMessageClass" id="adultError"></div>
 					</div>
 					<div class="divCol"> No children: </div>
@@ -86,9 +87,17 @@ retreat, such as details of it's history, room descriptions, dining information,
 					</div>
 				</div>
 				<div class="divRow">
-					<div class="divCol"></div><div class="divCol"></div><div class="divCol"></div>
+					<div class="divCol">Room type:</div>
+					<div class="divInputCol">
+					<select name="roomType" required>
+					  <option value="Standard">Standard</option>
+					  <option value="Deluxe">Deluxe</option>
+					  <option value="Penthouse">Penthouse</option>
+				    </select>
+					</div>
+					<div class="divCol"></div>
 					<div class="divCol">
-				    <input type="submit" value="BOOK" id="bookingSubmit" onsubmit ="redirectToGuestInfoPage()"/>
+				    <input type="submit" value="BOOK" id="bookingSubmit" onsubmit ="validateBookingForm()"/>
 				    </div>
 				</div>
 			</div>
