@@ -3,11 +3,14 @@
 Name: Julie Cao
 Student ID: 216188104
 Subject: SIT7714
-Assignment: Assignment 1
+Assignment: Assignment 2
 Comment: This is the CSS used to control the components in the index page
 
-*/
-  
+
+ function redirectToGuestInfoPage() {
+               window.location="file:///Users/julieoanhcao/Box%20Sync/UniStuff/2016/SIT774_Web/Assignments/Assignment1/guestInformation.html";
+            }
+*/  
     #hotelImage{
         display: block;
         margin-top: 1em;
