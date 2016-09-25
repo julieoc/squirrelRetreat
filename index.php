@@ -1,5 +1,20 @@
 <?php
 session_start();
+
+// Set default values for the booking form, retrieve if previously set
+$adults = isset($_SESSION['numAdults']) ? $_SESSION['numAdults'] : "";
+$children = isset($_SESSION['numChildren']) ? $_SESSION['numChildren'] : "";
+$inDate = isset($_SESSION['inDate']) ? $_SESSION['inDate'] : "";
+$outDate = isset($_SESSION['outDate']) ? $_SESSION['outDate'] : "";
+$roomType = isset($_SESSION['roomType']) ? $_SESSION['roomType'] : "Standard";
+unset($_SESSION['numAdults'], $_SESSION['numChildren'], $_SESSION['inDate'],
+      $_SESSION['outDate'], $_SESSION['roomType']);
+
+// Let the user know if the room they chose is unavailable
+if (isset($_SESSION['roomAvailable'])) {
+  $unavailableOnLoad = 'onload="alert(\"There are no $roomType rooms available between $inDate and $outDate\")"';
+  unset($_SESSION['roomAvailable']);
+}
 ?>
  <!DOCTYPE html>
  <!--
@@ -35,7 +50,7 @@ retreat, such as details of it's history, room descriptions, dining information,
 
 </head>
 
-    <body>
+    <body <?php echo $unavailableOnLoad; ?> >
     <nav>
     <div id="navigationToolbar">
 		<ul class="navigationBar">
@@ -68,24 +83,24 @@ retreat, such as details of it's history, room descriptions, dining information,
 				<div class="divRow">
 					<div class="divCol"> Check in:</div>
 					<div class="divInputCol">
-					<input type="date" name="inDate" id="checkinDate" required/>
+					<input type="date" name="inDate" id="checkinDate" value="<?php echo $inDate; ?>" required/>
 					<div class="errorMessageClass" id="checkinDateError"></div>
 					</div>
 					<div class="divCol"> Check out:</div>
 					<div class="divInputCol">
-					<input type="date" name="outDate" id="checkoutDate" required/>
+					<input type="date" name="outDate" id="checkoutDate" value="<?php echo $outDate; ?>" required/>
 					<div class="errorMessageClass" id="checkoutDateError"></div>
 					</div>
 				</div>
 				<div class="divRow">	
 					<div class="divCol"> No. adults:</div>
 					<div class="divInputCol numberInput">
-					<input type="number" name="numAdults" id="numAdults" required />
+					<input type="number" name="numAdults" id="numAdults" value="<?php echo $adults; ?>" required />
 					<div class="errorMessageClass" id="adultError"></div>
 					</div>
 					<div class="divCol"> No children: </div>
 					<div class="divInputCol numberInput">
-					<input type="number" name="numChildren" id="numChildren"/>
+					<input type="number" name="numChildren" id="numChildren" value="<?php echo $children; ?>"/>
 					<div class="errorMessageClass" id="childrenError"></div>
 					</div>
 				</div>
@@ -93,15 +108,15 @@ retreat, such as details of it's history, room descriptions, dining information,
 					<div class="divCol">Room type:</div>
 					<div class="divInputCol">
 					<select name="roomType" required>
-					  <option value="Standard">Standard</option>
-					  <option value="Deluxe">Deluxe</option>
-					  <option value="Penthouse">Penthouse</option>
-				    </select>
+					  <option value="Standard" <?php if ($roomType == "Standard") echo "selected"; ?> >Standard</option>
+					  <option value="Deluxe" <?php if ($roomType == "Deluxe") echo "selected"; ?> >Deluxe</option>
+					  <option value="Penthouse"  <?php if ($roomType == "Penthouse") echo "selected"; ?> >Penthouse</option>
+				  </select>
 					</div>
 					<div class="divCol"></div>
 					<div class="divCol">
 				    <input type="submit" value="BOOK" id="bookingSubmit" />
-				    </div>
+				  </div>
 				</div>
 			</div>
 		</form>
