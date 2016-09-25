@@ -3,16 +3,21 @@ session_start();
 
 // Set default values for the booking form, retrieve if previously set
 $adults = isset($_SESSION['numAdults']) ? $_SESSION['numAdults'] : "";
-$children = isset($_SESSION['numChildren']) ? $_SESSION['numChildren'] : "";
-$inDate = isset($_SESSION['inDate']) ? $_SESSION['inDate'] : "";
-$outDate = isset($_SESSION['outDate']) ? $_SESSION['outDate'] : "";
+$children = isset($_SESSION['numChild']) ? $_SESSION['numChild'] : "";
+$inDate = isset($_SESSION['checkinDate']) ? $_SESSION['checkinDate'] : "";
+$outDate = isset($_SESSION['checkoutDate']) ? $_SESSION['checkoutDate'] : "";
 $roomType = isset($_SESSION['roomType']) ? $_SESSION['roomType'] : "Standard";
-unset($_SESSION['numAdults'], $_SESSION['numChildren'], $_SESSION['inDate'],
-      $_SESSION['outDate'], $_SESSION['roomType']);
+unset($_SESSION['numAdults'], $_SESSION['numChild'], $_SESSION['checkinDate'],
+      $_SESSION['checkoutDate'], $_SESSION['roomType']);
 
 // Let the user know if the room they chose is unavailable
 if (isset($_SESSION['roomAvailable'])) {
-  $unavailableOnLoad = 'onload="alert(\"There are no $roomType rooms available between $inDate and $outDate\")"';
+  $unavailableOnLoad = 'onload="noRoomsAvailable()"';
+  $unavailableOnLoadJS = '<script>
+function noRoomsAvailable() {
+  alert("There are no '. $roomType .' rooms available between '. $inDate .' and '. $outDate .'. Please try another combination.")
+}
+</script>';
   unset($_SESSION['roomAvailable']);
 }
 ?>
@@ -47,7 +52,9 @@ retreat, such as details of it's history, room descriptions, dining information,
 <link rel="stylesheet" type="text/css" href="css/index.css">
 
 <script src="js/index.js" ></script>
-
+<?php
+if (isset($unavailableOnLoadJS)) echo $unavailableOnLoadJS;
+?>
 </head>
 
     <body <?php echo $unavailableOnLoad; ?> >
