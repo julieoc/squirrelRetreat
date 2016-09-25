@@ -11,13 +11,14 @@ require_once 'dbConnect.php';
 require_once 'pollResults.php';
 require_once 'bookingInformation.php';
 require_once 'customerData.php';
-require_once 'contactUs.php';
+require_once 'enquiryForm.php';
 $conn = dbConnect();
 
 $pollResults = getPollResults($conn);
 $bookings = getBookingHistory($conn);
 $customers = getCustomerInformation($conn);
 $enquiryForm = getCustomerEnquiry($conn);
+
 dbClose($conn);
 ?>
 <h2>POLL RESULTS</h2>
@@ -126,7 +127,7 @@ foreach($customers as $row){
 <?php
 }
 ?>
-
+</table>
 <h2>ENQUIRYFORM</h2>
 <table>
 <tr>
@@ -149,8 +150,6 @@ foreach($enquiryForm as $row){
 <?php
 }
 ?>
-
-
 
 </table>
 <?php require_once 'footer.php'; ?>
