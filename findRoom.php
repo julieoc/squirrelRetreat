@@ -17,14 +17,15 @@ ORDER BY r.room_id;
 */
 
 // Get a list of available rooms in the chosen room type
-$qry = 'SELECT roomNumber AS "AVAILABLE_ROOM" from ROOM
+$qry = "SELECT roomNumber AS AVAILABLE_ROOM from ROOM
 WHERE roomType = (
   SELECT ROOMID FROM ROOM_TYPE 
   WHERE ROOMNAME = :roomName)
 AND roomNumber NOT IN (
 SELECT roomNumber FROM BOOKING
-WHERE NOT (checkOut < :checkoutDate OR checkIn > :checkinDate) )
-ORDER BY roomNumber';
+WHERE NOT (checkOut < TO_DATE(:checkoutDate, 'YYYY-MM-DD') OR
+  checkIn > TO_DATE(:checkinDate, 'YYYY-MM-DD')) )
+ORDER BY roomNumber";
 
 $dbh = dbConnect();
 $sth = oci_parse($dbh, $qry);
@@ -53,4 +54,5 @@ if ($nrows > 0) {
 }
 header("Location: $url");
 dbClose($dbh);
+exit();
 ?>
