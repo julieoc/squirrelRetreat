@@ -28,11 +28,8 @@ function bookRoom($dbh, $custId) {
   oci_bind_by_name($sth, ':roomNo', emptyOrNull($_SESSION['roomNo']));
   oci_execute($sth);
 
-  unset($_SESSION['numChild']);
-  unset($_SESSION['checkoutDate']);
-  unset($_SESSION['checkinDate']);
-  unset($_SESSION['roomNo']);
-  unset($_SESSION['numAdults']);
+  unset($_SESSION['numAdults'], $_SESSION['numChildren'], $_SESSION['inDate'],
+        $_SESSION['outDate'], $_SESSION['roomType'], $_SESSION['roomNo']);
 
 }
 ?>
