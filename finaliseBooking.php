@@ -10,3 +10,9 @@ $customerId = createCustomer($dbh);
 bookRoom($dbh, $customerId);
 dbClose($dbh);
 ?>
+
+<body>
+Thank you for booking. We look forward to seeing you.
+
+Redirecting you back to the homepage for the Squirrel Retreat.
+<?php require_once 'footer.php'; ?>

@@ -126,5 +126,5 @@ foreach($customers as $row){
 }
 ?>
 </table>
-</body>
-</html>
+<?php require_once 'footer.php'; ?>
+
