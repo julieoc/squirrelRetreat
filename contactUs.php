@@ -18,12 +18,12 @@ $id = $data['MAX'][0] + 1;
 // Store the data from the poll into the database
 
   $sth = oci_parse($dbh, "INSERT INTO ENQUIRYFORM(enquiryNo, firstName, lastname, enquiry, submitDate) 
-                          VALUES (:enquiryNo, :firstName, :lastName, :enquiry, TO_DATE(:submitDate, 'YYYY-MM-DD')");
+                          VALUES (:enquiryNo, :firstName, :lastName, :enquiry, TO_DATE(:submitDate, 'YYYY-MM-DD HH24:MI:SS'))");
   oci_bind_by_name($sth, ':enquiryNo', $id);
   oci_bind_by_name($sth, ':firstName', emptyOrNull($_POST['firstname']));
   oci_bind_by_name($sth, ':lastName', emptyOrNull($_POST['lastname']));
   oci_bind_by_name($sth, ':enquiry', emptyOrNull($_POST['enquiry']));
-  oci_bind_by_name($sth, ':submitDate', date('Y-m-d'));
+  oci_bind_by_name($sth, ':submitDate', date('Y-m-d G:i:s'));
   oci_execute($sth);
     
 
