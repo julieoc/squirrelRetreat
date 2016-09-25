@@ -1,10 +1,6 @@
 <?php
 session_start();
-?>
-<html>
-<head>
 
-<?php
 // findRoom.php
 // Connect to the db
 require_once 'dbConnect.php';
@@ -37,22 +33,24 @@ oci_bind_by_name($sth, ':checkinDate', $_POST['inDate']);
 oci_bind_by_name($sth, ':checkoutDate', $_POST['outDate']);
 oci_execute($sth);
 $nrows = oci_fetch_all($sth, $roomList);
+$url = "";
+
+// Set session variables
+$_SESSION['numAdults'] = $_POST['numAdults'];
+$_SESSION['numChild'] = $_POST['numChildren'];
+$_SESSION['checkoutDate'] = $_POST['outDate'];
+$_SESSION['checkinDate'] = $_POST['inDate'];
+$_SESSION['roomType'] = $_POST['roomType'];
+
+// Choose where to redirect the customer to
 if ($nrows > 0) {
-  $_SESSION['numAdults'] = $_POST['numAdults'];
-  $_SESSION['numChild'] = $_POST['numChildren'];
-  $_SESSION['checkoutDate'] = $_POST['outDate'];
-  $_SESSION['checkinDate'] = $_POST['inDate'];
   $_SESSION['roomNo'] = $roomList['AVAILABLE_ROOM'][0];
-  unset($_SESSION['bookStatus']);
-  echo '<meta http-equiv="refresh" content="0;url=guestInformation.php">';
+  unset($_SESSION['roomAvailable']);
+  $url = 'guestinformation.php';
 } else {
-  $_SESSION['bookStatus'] = false;
-  echo '<meta http-equiv="refresh" content="0;url=index.php">';
+  $_SESSION['roomAvailable'] = false;
+  $url = 'index.php';
 }
+header("Location: $url");
 dbClose($dbh);
 ?>
-
-</head>
-<body>
-</body>
-</html>
