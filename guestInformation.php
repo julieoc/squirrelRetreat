@@ -49,7 +49,7 @@ Comment: This is a page which allows guests to enter their information and book 
 <div id="twoTablesAndButton">
 <div id="guestInfo">
 <h2> GUEST INFORMATION </h2>
-<form id="guestBooking" method="post" action="finaliseBooking.php">
+<form id="guestBooking" method="post" action="finaliseBooking.php" onsubmit="return validateGuestBooking()">
 <table>
 
 <tr>
@@ -119,14 +119,16 @@ Comment: This is a page which allows guests to enter their information and book 
 <tr class="errorMessageClass"><td colspan=2 id="cityError"></td>
 </tr>
 <tr>
+<td class="fieldNames">State:</td>
+<td class="fieldInput"><input type= "text" name="state" id="state" onblur="this.value=this.value.trim()"/></td>
+<tr class="errorMessageClass"><td colspan=2 id="stateError"></td>
+</tr>
+</tr>
+<tr>
 <td class="fieldNames">Postal code:</td>
 <td class="fieldInput"> <input type= "number" name="postalCode" id="postalCode" onblur="this.value=this.value.trim()"/></td>
 </tr>
 <tr class="errorMessageClass"><td colspan=2 id="postalCodeError"></td>
-</tr>
-<tr>
-<td class="fieldNames">State:</td>
-<td class="fieldInput"><input type= "text" name="state" id="state"/></td><span class="errorMessageClass" id="stateError" onblur="this.value=this.value.trim()"></span>
 </tr>
 <tr>
 <td class="fieldNames">Country:</td>

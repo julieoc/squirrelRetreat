@@ -12,9 +12,6 @@ Comment: This is the CSS used to control the settings for the guest information 
 h2 {
 	margin-top:-2em;
 }
-div#bodyDivGuestInfoPage{
-	height:550px;
-}	
 div#guestInfo, div#paymentSection{
 	display:inline-block;
 	width:37%;	

@@ -371,17 +371,21 @@ Email: enquries@squirrelretreat.com<br/>
 <h3 id= "contactUsForm" > Contact Form </h3>
 <form id="enquiryForm" action="contactUs.php" method="post" onsubmit="return validateEnquiryForm()">
  First name:<br/>
-  <input type="text" name="firstname" class="contactFormInputField contactFormInputText">
+  <input type="text" name="firstname" id="firstNameEnquiry" class="contactFormInputField contactFormInputText" required/>
+  <div class="errorMessageClass" id="firstNameError"></div>
   <br/><br/>
   Last name:<br/>
-  <input type="text" name="lastname" class="contactFormInputField contactFormInputText">
+  <input type="text" name="lastname" id="lastNameEnquiry" class="contactFormInputField contactFormInputText" required/>
+  <div class="errorMessageClass" id="lastNameError"></div>
   <br/><br/>
   Message:<br/>
-  <textarea rows="16" cols="20" name="enquiry" class="contactFormInputField">
+  <textarea rows="16" cols="20" name="enquiry" id="enquiry" class="contactFormInputField" required/>
   </textarea>
+    <div class="errorMessageClass" id="enquiryError"></div>
   <br/><br/>
   <input type="submit" value="Submit">
 </form>
 </div>
 
 <?php require_once 'footer.php'; ?>
+
