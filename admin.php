@@ -11,12 +11,13 @@ require_once 'dbConnect.php';
 require_once 'pollResults.php';
 require_once 'bookingInformation.php';
 require_once 'customerData.php';
-
+require_once 'contactUs.php';
 $conn = dbConnect();
 
 $pollResults = getPollResults($conn);
 $bookings = getBookingHistory($conn);
 $customers = getCustomerInformation($conn);
+$enquiryForm = getCustomerEnquiry($conn);
 dbClose($conn);
 ?>
 <h2>POLL RESULTS</h2>
@@ -125,6 +126,32 @@ foreach($customers as $row){
 <?php
 }
 ?>
+
+<h2>ENQUIRYFORM</h2>
+<table>
+<tr>
+<th>Enquiry no. </th>
+<th>First Name </th>
+<th>Last Name </th>
+<th>Enquiry </th>
+<th>Submit Date </th>
+</tr>
+<?php
+foreach($enquiryForm as $row){
+?>
+<tr>
+<td><?php echoSafeText($row['ENQUIRYNO']); ?></td>
+<td><?php echoSafeText($row['FIRSTNAME']); ?></td>
+<td><?php echoSafeText($row['LASTNAME']); ?></td>
+<td><?php echoSafeText($row['ENQUIRY']); ?></td>
+<td><?php echoSafeText($row['SUBMITDATE']); ?></td>
+</tr>
+<?php
+}
+?>
+
+
+
 </table>
 </body>
 </html>
