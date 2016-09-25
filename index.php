@@ -347,7 +347,7 @@ Fax: +61 3 9555 5555<br/>
 Email: enquries@squirrelretreat.com<br/>
 <div id=contactFormDiv>
 <h3 id= "contactUsForm" > Contact Form </h3>
-<form>
+<form id="enquiryForm" action="contactUs.php" method="post" onsubmit="return validateEnquiryForm()">
  First name:<br/>
   <input type="text" name="firstname" class="contactFormInputField contactFormInputText">
   <br/><br/>
@@ -355,8 +355,7 @@ Email: enquries@squirrelretreat.com<br/>
   <input type="text" name="lastname" class="contactFormInputField contactFormInputText">
   <br/><br/>
   Message:<br/>
-  <textarea rows="16" cols="20" class="contactFormInputField">
-  
+  <textarea rows="16" cols="20" name="enquiry" class="contactFormInputField">
   </textarea>
   <br/><br/>
   <input type="submit" value="Submit">
