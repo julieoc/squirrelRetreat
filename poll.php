@@ -33,8 +33,8 @@ the draw to win a Honda Accornd.
     <div id="navigationToolbar">
 
 		<ul class="navigationBar">
-		<li class="navigationBar"><a id="BACK" href="index.html">BACK</a></li>
-		<li class="navigationBar"><a  id="CONTACT" href="index.html#contactUs">CONTACT</a></li>
+		<li class="navigationBar"><a id="BACK" href="index.php">BACK</a></li>
+		<li class="navigationBar"><a  id="CONTACT" href="index.php#contactUs">CONTACT</a></li>
 		</ul>
     </div>
  </nav>

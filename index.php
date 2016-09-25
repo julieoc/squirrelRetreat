@@ -351,7 +351,7 @@ The ever-changing menu keeps the dining experience interesting for restaurants n
 <p class="reviews">"Totally recommend the penthouse suite. Niles, our live-in butler was absolutely hilarious." Humphrey B
 <p id="completeSurvey">For a limited time, when you submit a review of The Squirrel Retreat, you will be instantly placed in the running to win a brand new Honda Accornd! To ensure that you don't miss out, fill out our satisfaction survey by clicking on the link below.</p>
 
-<a href="poll.html"><p id="win"> COMPLETE THE SURVEY FOR A CHANCE TO WIN!</p></a>
+<a href="poll.php"><p id="win"> COMPLETE THE SURVEY FOR A CHANCE TO WIN!</p></a>
  
 
 <h2 id= "contactUs" > CONTACT US </h2>

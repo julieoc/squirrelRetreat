@@ -5,7 +5,7 @@
 <meta name="description" content="Thank you for your feedback">
 <meta name="keywords" content="poll,honda,squirrel,retreat,accomodation,hotel, holiday, dining, heston blumenthal, acacia tree">
 <meta name="author" content="Julie Oanh Cao">
-<meta http-equiv="refresh" content="3; URL='index.html'">
+<meta http-equiv="refresh" content="3; URL='index.php'">
 <title>Thank you for your feedback
 </title>
 </head>
