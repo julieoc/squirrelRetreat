@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
  <!DOCTYPE html>
 <html lang="en" xml:lang="en">
 <head>
@@ -10,7 +14,6 @@
 </title>
 </head>
 <?php
-session_start();
 // pollUpdate.php
 // Connect to the db
 require_once 'dbConnect.php';
