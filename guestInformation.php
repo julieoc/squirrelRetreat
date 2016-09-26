@@ -31,13 +31,10 @@ Comment: This is a page which allows guests to enter their information and book 
 </head>
 <body>
  <nav>
-    <div id="navigationToolbar">
-
 		<ul class="navigationBar">
 		<li class="navigationBar"><a id="BACK" href="index.php">BACK</a></li>
 		<li class="navigationBar"><a  id="CONTACT" href="index.php#contactUs">CONTACT</a></li>
 		</ul>
-    </div>
  </nav>
 	<!-- Company logo section -->
 	<div id="titleAndCaption">

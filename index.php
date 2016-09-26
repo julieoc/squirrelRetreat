@@ -59,7 +59,7 @@ if (isset($unavailableOnLoadJS)) echo $unavailableOnLoadJS;
 
     <body <?php echo $unavailableOnLoad; ?> >
     <nav>
-    <div id="navigationToolbar">
+
 		<ul class="navigationBar">
 			<li class="navigationBar"><a id="ABOUT" href="#aboutInfo" >ABOUT</a></li>
 			<li class="navigationBar"><a id="ROOMS" href="#roomsInfo">ROOMS</a> </li>
@@ -68,7 +68,7 @@ if (isset($unavailableOnLoadJS)) echo $unavailableOnLoadJS;
 			<li class="navigationBar"><a id="CONTACT" href="#contactUs">CONTACT</a></li>
 			<li class="navigationBar"><a id="BOOK" href="#titleAndCaption">BOOK</a></li>
 		</ul>
-  	</div>
+  
   	</nav>
   
 	<!-- Company logo section -->
